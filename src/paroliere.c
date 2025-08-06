@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
 #include <string.h>
 #include "paroliere.h"
 
@@ -11,7 +9,7 @@ void insertLetters();
 void dfs(int current, int *visited, char *word, int word_len);
 int binarySearch(const char *prefix, int isPrefix);
 void showGrid();
-void addDelay(int delay);
+
 
 // Adjacency matrix for 4x4 grid connections
 int adj[ADJ_SIDE][ADJ_SIDE] = {
@@ -159,27 +157,4 @@ int binarySearch(const char *word, int isPrefix) {
 // Displays the final score
 void totalScore() {
     printf("\nTotal Score: %d\n", total_score);
-}
-
-// Adds a countdown delay, user can press Enter to skip
-void addDelay(int delay) {
-    for (int sec = delay; sec >= 0; sec--) {
-        printf("\rWaiting: %2d seconds... Press Enter to exit ", sec);
-        fflush(stdout);
-
-        // Wait 1 second in 100ms steps
-        for (int i = 0; i < 10; i++) {
-            Sleep(100);
-
-            if (_kbhit()) {
-                int ch = _getch();
-                if (ch == '\r') {
-                    printf("\nInterrupted by user.\n\n\n");
-                    return;
-                }
-            }
-        }
-    }
-
-    printf("\nTime's up.\n");
 }

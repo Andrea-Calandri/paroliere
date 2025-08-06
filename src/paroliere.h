@@ -16,9 +16,6 @@
 // Initialize the game by loading the dictionary and setting up the board
 void ParoliereInitialize();
 
-// Add a delay of DELAY seconds
-void addDelay(int delay);
-
 // Generates all valid words from the board letters
 void generateWords();
 
